@@ -29,7 +29,8 @@
     "flow:install": "flow-typed install",
     "flow:coverage": "flow-coverage-report -i 'app/**/*.js' -x 'app/**/*.spec.js' -t html -t json -t text -o reports/flow/ --threshold 70",
     "esdoc": "esdoc -c .esdoc.json",
-    "pretty": "prettier --write **/*.{js,json,css}"
+    "pretty": "prettier --write **/*.{js,json,css}",
+    "axe": "node internals/testing/accessibility/global.axe.test"
   },
   "repository": {
     "type": "git",
@@ -47,6 +48,7 @@
     "@babel/preset-flow": "^7.0.0",
     "auto-changelog": "^1.8.1",
     "autoprefixer": "^9.1.5",
+    "axe-webdriverjs": "^2.2.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
