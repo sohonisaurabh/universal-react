@@ -1,23 +1,25 @@
-/**
- * Registers Service Worker on the site
- * Need more? check out:
- * https://github.com/GoogleChrome/sw-precache/blob/master/demo/app/js/service-worker-registration.js
- */
+import React from 'react';
 
-/* eslint no-console:0 */
-/* globals navigator */
+class OfflineSupport extends React.PureComponent {
+  componentDidMount() {
+    if ('serviceWorker' in navigator) {
+      // eslint-disable-next-line compat/compat
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then(registration => {
+          // eslint-disable-next-line no-console
+          console.log('service worker registration successful', registration);
+        })
+        .catch(err => {
+          // eslint-disable-next-line no-console
+          console.warn('service worker registration failed', err.message);
+        });
+    }
+  }
 
-if (
-  process.env.NODE_ENV === 'production' &&
-  typeof window !== 'undefined' &&
-  'serviceWorker' in navigator
-) {
-  navigator.serviceWorker
-    .register('service-worker.js')
-    .then(() => {
-      console.log('Service worker registered');
-    })
-    .catch(e => {
-      console.error('Error during service worker registration:', e);
-    });
+  render() {
+    return null;
+  }
 }
+
+export default OfflineSupport;

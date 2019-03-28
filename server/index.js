@@ -173,9 +173,6 @@ app.prepare().then(() => {
   // Handle all other requests as page / static requests
   server.get('*', (req, res) => {
     const parsedUrl = parse(req.url, true);
-
-    const { pathname } = parsedUrl;
-
     // remove build if static
     // if (isStaticUrl(req.url) && process.env.NODE_ENV === ENV_PRODUCTION) {
     //   [req.url] = parseStaticUrl(req.url).split('?');
@@ -184,9 +181,13 @@ app.prepare().then(() => {
     //   return;
     // }
 
-    if (pathname === SERVICE_WORKER_FILE) {
-      const filePath = join(__dirname, '../.next', pathname);
-      app.serveStatic(req, res, filePath);
+    if (req.url.includes('/sw')) {
+      const filePath = join(__dirname, '..', 'static', 'workbox', 'sw.js');
+      res.sendFile(filePath);
+    } else if (req.url.includes('static/workbox/')) {
+      const filePath = join(__dirname, '..', req.url);
+      console.log('static/workbox/ is ', filePath);
+      res.sendFile(filePath);
     } else {
       handler(req, res, parsedUrl);
     }

@@ -46,6 +46,7 @@ const Layout = ({ children, deviceType, hasRightGutter }: Props): Node => {
           ) : (
             <meta name="viewport" content={`width=${width}`} />
           )}
+          <link rel="manifest" href="/_next/static/manifest.json" />
         </Head>
         <Header />
         {children}

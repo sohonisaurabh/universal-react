@@ -18,3 +18,5 @@ docs
 # next.js build output
 .next
 app/.next
+
+static/workbox

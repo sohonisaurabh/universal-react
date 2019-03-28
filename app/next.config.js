@@ -9,6 +9,10 @@ const path = require('path');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 const withPlugins = require('next-compose-plugins');
 const withTM = require('next-plugin-transpile-modules');
+const NextWorkboxWebpackPlugin = require('next-workbox-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+const workboxOptions = require('./lib/pwa/options');
+const manifestOptions = require('./lib/pwa/manifest');
 const { ENV_DEVELOPMENT, ENV_PRODUCTION } = require('../isomorphic/constants');
 
 const { parsed: envVars } = dotenv.config({
@@ -23,7 +27,7 @@ const metricsKey = process.env.ENV_API_KEY === process.env.PROD_KEY ? 'prod' : '
 module.exports = withPlugins([withBundleAnalyzer, withTM], {
   transpileModules: ['@xt-pagesource/atomic-react-pattern-lib'],
   distDir: '../.next',
-  webpack: (config, { dev, buildId, isServer }) => {
+  webpack: (config, { dev, buildId, isServer, config: { distDir } }) => {
     config.plugins.push(new webpack.EnvironmentPlugin(envVars));
 
     config.module.rules.push({
@@ -87,17 +91,22 @@ module.exports = withPlugins([withBundleAnalyzer, withTM], {
 
     // Following check is for prod builds and client only
     if (!dev && !isServer) {
-      // TODO: revisit service worker approach
-      // config.plugins.push(new SWPrecacheWebpackPlugin({
-      //   verbose: true,
-      //   staticFileGlobsIgnorePatterns: [/\.next\//],
-      //   runtimeCaching: [
-      //     {
-      //       handler: 'networkFirst',
-      //       urlPattern: /^https?.*/,
-      //     },
-      //   ],
-      // }));
+      config.plugins.push(
+        new NextWorkboxWebpackPlugin({
+          buildId,
+          ...workboxOptions,
+          ...{ distDir },
+        }),
+        new WebpackPwaManifest({ ...manifestOptions }),
+        new TerserPlugin({
+          parallel: true,
+          terserOptions: {
+            compress: true,
+            mangle: true,
+          },
+          sourceMap: false,
+        })
+      );
 
       /* eslint no-param-reassign:0 */
       // const oldEntry = config.entry;
@@ -108,28 +117,15 @@ module.exports = withPlugins([withBundleAnalyzer, withTM], {
       //          `.${path.sep}lib${path.sep}pwa${path.sep}offline.js`));
       //     return entry;
       //   });
-
-      config.resolve = {
-        alias: {
-          winston: path.resolve(__dirname, 'lib/fake/winston.js'),
-          'winston-logrotate': path.resolve(__dirname, 'lib/fake/winston.js'),
-          'memory-cache': path.resolve(__dirname, 'lib/fake/memory-cache.js'),
-        },
-      };
-
-      config.plugins.push(
-        new TerserPlugin({
-          parallel: true,
-          terserOptions: {
-            compress: true,
-            mangle: true,
-          },
-          sourceMap: false,
-        })
-      );
     }
 
-    config.resolve.alias.fs = path.resolve(__dirname, 'lib/fake/fs.js');
+    config.resolve = {
+      alias: {
+        winston: path.resolve(__dirname, 'lib/fake/winston.js'),
+        'winston-logrotate': path.resolve(__dirname, 'lib/fake/winston.js'),
+        'memory-cache': path.resolve(__dirname, 'lib/fake/memory-cache.js'),
+      },
+    };
 
     return config;
   },
