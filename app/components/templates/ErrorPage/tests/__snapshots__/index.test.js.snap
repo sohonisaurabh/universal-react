@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ErrorPage Component should render correctly 1`] = `
-<Connect(Layout)
+<Layout
   className="row"
+  hasRightGutter={false}
   id="content-wrapper"
   tabindex="-1"
   title="error"
@@ -21,5 +22,5 @@ exports[`ErrorPage Component should render correctly 1`] = `
   >
     Test Message
   </section>
-</Connect(Layout)>
+</Layout>
 `;

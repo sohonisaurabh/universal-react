@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomePage component should render correctly 1`] = `
-<Connect(Layout)
+<Layout
   className="row"
+  hasRightGutter={false}
   id="content-wrapper"
   title="home"
 >
@@ -101,9 +102,6 @@ exports[`HomePage component should render correctly 1`] = `
           Next.js
         </li>
         <li>
-          Redux
-        </li>
-        <li>
           Node.js
         </li>
       </ol>
@@ -124,6 +122,7 @@ exports[`HomePage component should render correctly 1`] = `
         <Anchor
           as=""
           className=""
+          elementLocator=""
           forceClick={false}
           handleLinkClick={[Function]}
           href="https://github.com/flow-typed/flow-typed/blob/master/README.md"
@@ -144,6 +143,7 @@ exports[`HomePage component should render correctly 1`] = `
           <Anchor
             as=""
             className=""
+            elementLocator=""
             forceClick={false}
             handleLinkClick={[Function]}
             inheritedStyles=""
@@ -159,6 +159,7 @@ exports[`HomePage component should render correctly 1`] = `
           <Anchor
             as=""
             className=""
+            elementLocator=""
             forceClick={false}
             handleLinkClick={[Function]}
             inheritedStyles=""
@@ -174,6 +175,7 @@ exports[`HomePage component should render correctly 1`] = `
           <Anchor
             as=""
             className=""
+            elementLocator=""
             forceClick={false}
             handleLinkClick={[Function]}
             href="http://bradfrost.com/blog/post/atomic-web-design/"
@@ -190,6 +192,7 @@ exports[`HomePage component should render correctly 1`] = `
           <Anchor
             as=""
             className=""
+            elementLocator=""
             forceClick={false}
             handleLinkClick={[Function]}
             inheritedStyles=""
@@ -205,6 +208,7 @@ exports[`HomePage component should render correctly 1`] = `
           <Anchor
             as=""
             className=""
+            elementLocator=""
             forceClick={false}
             handleLinkClick={[Function]}
             inheritedStyles=""
@@ -220,6 +224,7 @@ exports[`HomePage component should render correctly 1`] = `
           <Anchor
             as=""
             className=""
+            elementLocator=""
             forceClick={false}
             handleLinkClick={[Function]}
             inheritedStyles=""
@@ -235,6 +240,7 @@ exports[`HomePage component should render correctly 1`] = `
           <Anchor
             as=""
             className=""
+            elementLocator=""
             forceClick={false}
             handleLinkClick={[Function]}
             inheritedStyles=""
@@ -250,6 +256,7 @@ exports[`HomePage component should render correctly 1`] = `
           <Anchor
             as=""
             className=""
+            elementLocator=""
             forceClick={false}
             handleLinkClick={[Function]}
             inheritedStyles=""
@@ -265,6 +272,7 @@ exports[`HomePage component should render correctly 1`] = `
           <Anchor
             as=""
             className=""
+            elementLocator=""
             forceClick={false}
             handleLinkClick={[Function]}
             inheritedStyles=""
@@ -279,5 +287,5 @@ exports[`HomePage component should render correctly 1`] = `
       </ul>
     </div>
   </section>
-</Connect(Layout)>
+</Layout>
 `;

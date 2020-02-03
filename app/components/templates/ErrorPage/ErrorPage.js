@@ -14,7 +14,7 @@ class ErrorPage extends Component<any> {
 
   render() {
     const { errorData } = this.props;
-    const errorMessage = get(errorData, 'message');
+    const errorMessage = errorData.message;
     return (
       <Layout title="error" className="row" id="content-wrapper" tabindex="-1">
         <HeadTag description="error page" title="error page" />
