@@ -1,13 +1,8 @@
 // @flow
 import React, { Component } from 'react';
-import get from 'lodash/get';
 
 import Layout from '../Layout';
-import enhance from '../../../lib/dynamicStore';
-import initialActions from './ErrorPage.actions';
 import HeadTag from '../../atoms/HeadTag';
-import saga from './ErrorPage.saga';
-import reducer from './ErrorPage.reducer';
 
 class ErrorPage extends Component<any> {
   static getInitialProps({ res }: any) {
@@ -31,18 +26,4 @@ class ErrorPage extends Component<any> {
   }
 }
 
-/* istanbul ignore next */
-const mapStateToProps = state => ({
-  state,
-  errorData: get(state, ['errorPage', 'errorPageData']),
-});
-
-export default enhance(ErrorPage, {
-  mapStateToProps,
-  saga,
-  reducer,
-  key: 'errorPage',
-  initialActions,
-});
-
-export { ErrorPage as ErrorPageDisconnected };
+export default ErrorPage;

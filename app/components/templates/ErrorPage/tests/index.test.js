@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import { ErrorPageDisconnected as ErrorPage } from '../ErrorPage';
+import ErrorPage from '../ErrorPage';
 
 const props = {
   errorData: {

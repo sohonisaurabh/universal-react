@@ -2,9 +2,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import type { Node } from 'react';
-import { connect } from 'react-redux';
 import Head from 'next/head';
-import get from 'lodash/get';
 
 import Theme from '../../../styles/theme';
 import Header from '../../../containers/organisms/Header';
@@ -50,15 +48,5 @@ Layout.defaultProps = {
   hasRightGutter: false,
 };
 
-/* istanbul ignore next */
-const mapDispatchToProps = () => ({});
-
-const mapStateToProps /* istanbul ignore next */ = (state: Object): { deviceType: string } => ({
-  deviceType: get(state, ['global', 'globalData', 'deviceType', '']),
-  isNavigationDrawerOpen: get(state, ['global', 'header', 'isNavigationDrawerOpen', '']),
-  topBanner: get(state, ['global', 'header', 'topBanner', '']),
-  isTablet: get(state, ['global', 'globalData', 'isTablet', '']),
-  topBannerModalContent: get(state, ['global', 'header', 'topBannerModalContent', '']),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(Layout);
+export default Layout;
 export { Layout };

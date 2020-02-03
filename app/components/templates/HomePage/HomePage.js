@@ -75,7 +75,6 @@ const HomePage = ({ editorialData }: Props): Node => {
           <ol>
             <li>React</li>
             <li>Next.js</li>
-            <li>Redux</li>
             <li>Node.js</li>
           </ol>
           <h2>Installation</h2>
@@ -149,7 +148,10 @@ HomePage.defaultProps = {
     description: 'Home Page Description',
     title: 'Home page',
   },
-  editorialData: {},
+  editorialData: {
+    title: 'UNIVERSAL REACT',
+    subTitle: 'Application boilerplate for Universal react',
+  },
 };
 
 export default HomePage;
