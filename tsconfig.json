@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "skipLibCheck": true
+  },
+  "include": ["app/components/**/*.ts", "app/components/**/*.tsx"],
+  "exclude": ["node_modules"]
+}
