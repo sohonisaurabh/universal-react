@@ -1,9 +1,24 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "alwaysStrict": true,
-    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "skipLibCheck": true
+    "module": "commonjs",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "skipLibCheck": true,
+    "target": "es5"
   },
   "include": ["app/components/**/*.ts", "app/components/**/*.tsx"],
   "exclude": ["node_modules"]

@@ -58,7 +58,7 @@ class Iframe extends PureComponent<Props, State> {
 
     return (
       <iframe
-        ref={iframe => {
+        ref={(iframe: HTMLIFrameElement) => {
           this.iframe = iframe;
         }}
         className={className}
@@ -69,7 +69,7 @@ class Iframe extends PureComponent<Props, State> {
         frameBorder={frameBorder}
         onLoad={event => {
           if (takeContentHeight) {
-            const { document } = this.iframe.contentWindow;
+            const { document } = this.iframe.contentWindow as Window;
             this.setState({
               frameHeight: `${document ? document.body.scrollHeight : 0}px`,
             });

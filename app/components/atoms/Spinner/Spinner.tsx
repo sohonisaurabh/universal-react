@@ -16,32 +16,24 @@ type Props = {
 };
 
 const Spinner = (props: Props): ReactNode => {
-  const renderDefaultSpinner = (spinnerClassName, { ...others }) => (
-    <div className="rclDefaultSpinner" {...others} />
-  );
+  const renderDefaultSpinner = (props: Props) => <div {...props} className="rclDefaultSpinner" />;
 
-  const renderCustomSpinner = (spinnerClassName, { ...others }) => (
-    <div className="renderDotSpinner" {...others}>
+  const renderCustomSpinner = (props: Props) => (
+    <div {...props} className="renderDotSpinner">
       <div className="renderDotSpinner--dot" />
       <div className="renderDotSpinner--dot" />
       <div className="renderDotSpinner--dot" />
     </div>
   );
 
-  const renderSpinner = (spinnerClassName, { ...others }) =>
-    renderDefaultSpinner(spinnerClassName, { ...others });
+  const renderSpinner = (props: Props) => renderDefaultSpinner(props);
 
-  const renderDotSpinner = (spinnerClassName, { ...others }) =>
-    renderCustomSpinner(spinnerClassName, { ...others });
+  const renderDotSpinner = (props: Props) => renderCustomSpinner(props);
 
-  const { spinnerClassName, className, spinner, overlayEnabled, ...others } = props;
+  const { className, spinner, overlayEnabled } = props;
   if (overlayEnabled) {
     return (
-      <div className={className}>
-        {spinner
-          ? renderSpinner(spinnerClassName, { ...others })
-          : renderDotSpinner(spinnerClassName, { ...others })}
-      </div>
+      <div className={className}>{spinner ? renderSpinner(props) : renderDotSpinner(props)}</div>
     );
   }
   return '';

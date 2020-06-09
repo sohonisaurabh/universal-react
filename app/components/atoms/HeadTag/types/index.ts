@@ -13,3 +13,9 @@ export type MetaProps = {
   };
   content: string;
 };
+
+export type MetaAttrs = {
+  content: string;
+  property?: string;
+  name?: string;
+};

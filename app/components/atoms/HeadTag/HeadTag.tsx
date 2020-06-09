@@ -3,10 +3,10 @@ import React, { PureComponent } from 'react';
 
 import config from './HeadTag.config';
 
-import { Props, MetaProps } from './types';
+import { Props, MetaProps, MetaAttrs } from './types';
 
 export const MetaTag = (props: MetaProps) => {
-  const attrs = {
+  const attrs: MetaAttrs = {
     content: { ...props }.content,
   };
 
@@ -16,6 +16,8 @@ export const MetaTag = (props: MetaProps) => {
 
   return <meta {...attrs} />;
 };
+
+MetaTag.defaultProps = {};
 
 class HeadTag extends PureComponent<Props> {
   static defaultProps = {
@@ -30,6 +32,7 @@ class HeadTag extends PureComponent<Props> {
       <Head>
         <title>{title}</title>
         {META_KEYS.map(meta => {
+          //@ts-ignore
           const content = { ...this.props }[meta.serverKey] || { ...this.props }[meta.key];
           if (!content) {
             return null;
@@ -48,7 +51,9 @@ class HeadTag extends PureComponent<Props> {
           );
         })}
         {LINK.map(key =>
+          //@ts-ignore
           ({ ...this.props }[key] ? (
+            //@ts-ignore
             <link rel={key} href={{ ...this.props }[key]} key={key} />
           ) : null)
         )}
@@ -66,7 +71,5 @@ class HeadTag extends PureComponent<Props> {
     );
   }
 }
-
-MetaTag.defaultProps = {};
 
 export default HeadTag;
