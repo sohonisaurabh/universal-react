@@ -231,11 +231,12 @@ export const getWrapperComponent = (
  * @param {Object} WrappedComponent Page level component to be wrapped with HOC
  * @param {Object} config Configuration
  * @param {function} config.mapStateToProps Map properties from state to props
- * @param {function} config.mapDispatchToProps Map dispatch method for the component
+ * @param {function} [config.mapDispatchToProps] Map dispatch method for the component
  * @param {string} config.key Unique key identifying the page level component and
  * hence its saga and reducer
- * @param {Objext} config.reducer Root reducer for the given page level component
- * @param {Objext} config.saga Root saga for the given page level component
+ * @param {Object} config.reducer Root reducer for the given page level component
+ * @param {Object} config.saga Root saga for the given page level component
+ * @param {Object} config.initialActions Initial action to trigger page load of page level component
  */
 export default (
   WrappedComponent,

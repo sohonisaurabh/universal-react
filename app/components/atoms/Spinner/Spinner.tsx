@@ -15,7 +15,7 @@ type Props = {
   className: string;
 };
 
-const Spinner = (props: Props): ReactNode => {
+const Spinner: React.FC<Props> = props => {
   const renderDefaultSpinner = (props: Props) => <div {...props} className="rclDefaultSpinner" />;
 
   const renderCustomSpinner = (props: Props) => (
@@ -36,12 +36,10 @@ const Spinner = (props: Props): ReactNode => {
       <div className={className}>{spinner ? renderSpinner(props) : renderDotSpinner(props)}</div>
     );
   }
-  return '';
+  return null;
 };
 
 Spinner.defaultProps = {
-  spinnerClassName: null,
-  spinner: null,
   others: null,
   overlayEnabled: false,
 };

@@ -2,6 +2,7 @@ export type Props = {
   content?: string;
   title?: string;
   schema?: any;
+  description?: string;
 };
 
 export type MetaProps = {

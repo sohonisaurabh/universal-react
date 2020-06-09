@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styles from './Title.style';
 import withStyles from '../../../lib/withStyles';
 
@@ -8,7 +8,7 @@ type Props = {
   inheritedStyles?: string;
 };
 
-const Title = ({ children, className, inheritedStyles, ...others }: Props): ReactNode => (
+const Title: React.FC<Props> = ({ children, className, inheritedStyles, ...others }) => (
   <h1 className={className} {...others}>
     {children}
   </h1>

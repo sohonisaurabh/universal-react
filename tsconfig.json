@@ -21,5 +21,9 @@
     "target": "es5"
   },
   "include": ["app/components/**/*.ts", "app/components/**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "app/components/templates/ErrorPage/**/*.ts",
+    "app/components/templates/ErrorPage/**/*.tsx"
+  ]
 }

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { ReactNode } from 'react';
+import React from 'react';
 // No types found for Anchor, hence ignoring TS type checking
 //@ts-ignore
 import { AnchorVanilla as Anchor } from '@xt-pagesource/atomic-react-pattern-lib';
@@ -9,7 +9,7 @@ import withStyles from '../../../lib/withStyles';
 import { Props } from './types';
 import { isApplicationLink } from '../../../utils/isApplicationLink';
 
-const NavBar = ({ className, items, children }: Props): ReactNode => (
+const NavBar: React.FC<Props> = ({ className, items, children }) => (
   <nav className={className}>
     {children || (
       <ul>
