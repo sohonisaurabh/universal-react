@@ -1,4 +1,3 @@
-// @flow
 import {
   DEVICE_TYPE,
   CURRENT_ROUTE,
@@ -20,10 +19,10 @@ export default [getLabels];
 
 export const serverActions = {
   addDeviceType: (deviceType: string) => ({ type: DEVICE_TYPE, deviceType }),
-  addIsTablet: (isTablet: Boolean) => ({ type: IS_TABLET, isTablet }),
+  addIsTablet: (isTablet: boolean) => ({ type: IS_TABLET, isTablet }),
   setCurrentRoute: (pathname: string) => ({ type: CURRENT_ROUTE, pathname }),
   setPageUrl: (pageUrl: string) => ({ type: PAGE_URL, pageUrl }),
-  setPageQuery: (pageQuery: { [string]: Array<string> }) => ({ type: PAGE_QUERY, pageQuery }),
+  setPageQuery: (pageQuery: { [key: string]: Array<string> }) => ({ type: PAGE_QUERY, pageQuery }),
   setPageOrigin: (origin: string) => ({ type: PAGE_ORIGIN, origin }),
   setApplicationLabels: (labels: Object) => ({
     type: GET_APPLICATION_LABELS_SUCCESS,

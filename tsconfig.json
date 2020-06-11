@@ -20,10 +20,18 @@
     "skipLibCheck": true,
     "target": "es5"
   },
-  "include": ["app/components/**/*.ts", "app/components/**/*.tsx"],
+  "include": [
+    "app/components/**/*.ts*",
+    "app/constants/**/*.ts",
+    "app/container/**/*.ts*",
+    "app/routes/**/*.ts",
+    "app/locales/**/*.ts",
+    "app/utils/**/*.ts"
+    // "app/pages/**/*.ts*"
+  ],
   "exclude": [
-    "node_modules",
-    "app/components/templates/ErrorPage/**/*.ts",
-    "app/components/templates/ErrorPage/**/*.tsx"
+    "node_modules"
+    // "app/components/templates/ErrorPage/**/*.ts",
+    // "app/components/templates/ErrorPage/**/*.tsx"
   ]
 }

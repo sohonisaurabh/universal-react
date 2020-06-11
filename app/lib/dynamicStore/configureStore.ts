@@ -24,7 +24,7 @@ const composeEnhancers =
     : compose;
 
 type optionsType = {
-  key: 'string';
+  key: string;
   reducer?: Reducer;
   saga?: any;
 };
