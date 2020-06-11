@@ -56,7 +56,7 @@ const setSessionEmail = (state: GlobalState) => {
 };
 
 const setUserState = (state: GlobalState, userState: GlobalState['userState']) => {
-  if (userState === USER_STATE_LOGGED_IN) setCookie('lastLogin', new Date());
+  if (userState === USER_STATE_LOGGED_IN) setCookie('lastLogin', new Date().toDateString(), 10);
   return set(state, 'userState', userState);
 };
 

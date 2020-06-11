@@ -33,7 +33,7 @@ import injectSagaAndReducer from './injectSagaAndReducer';
 import { parseQueryParams } from '../../utils/utils';
 import { Request, Response } from 'express';
 import { SagaIterator } from 'redux-saga';
-import { NextPage, NextComponentType } from 'next';
+import { NextPage } from 'next';
 
 type RequestDetailsType = {
   deviceType: 'mobile' | 'desktop';

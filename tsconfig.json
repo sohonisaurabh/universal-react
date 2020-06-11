@@ -26,12 +26,14 @@
     "app/container/**/*.ts*",
     "app/routes/**/*.ts",
     "app/locales/**/*.ts",
-    "app/utils/**/*.ts"
-    // "app/pages/**/*.ts*"
+    "app/utils/**/*.ts",
+    "app/global/**/*.ts*"
   ],
   "exclude": [
-    "node_modules"
-    // "app/components/templates/ErrorPage/**/*.ts",
-    // "app/components/templates/ErrorPage/**/*.tsx"
+    "node_modules",
+    "app/components/templates/ErrorPage/**/*.ts",
+    "app/components/templates/ErrorPage/**/*.tsx",
+    "app/pages/**/*.ts*",
+    "app/lib/**/*.ts*"
   ]
 }
