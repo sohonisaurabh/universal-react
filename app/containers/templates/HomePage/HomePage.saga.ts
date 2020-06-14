@@ -3,8 +3,14 @@ import { loadHomeFailure, loadHomePageEditorialSuccess } from './HomePage.action
 import { LOAD_HOME_EDITORIAL_DATA } from './HomePage.constants';
 import API_URLS from '../../../constants/api/services';
 import API from '../../../utils/fetch';
+import { Action } from 'redux';
 
-export function* loadHomeEditorialDataSaga(action) {
+interface HomePageAction extends Action {
+  type: typeof LOAD_HOME_EDITORIAL_DATA;
+  payload?: any;
+}
+
+export function* loadHomeEditorialDataSaga(action: HomePageAction) {
   try {
     const data = yield call(API.fetch, API_URLS.homePage, action);
     yield put(loadHomePageEditorialSuccess(data));

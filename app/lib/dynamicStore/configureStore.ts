@@ -29,7 +29,7 @@ type optionsType = {
   saga?: any;
 };
 
-type storeType = Store & {
+type StoreType = Store & {
   globalSaga: any;
   injectedReducers: { [key: string]: Reducer | undefined };
   injectedSagas: { [key: string]: any };
@@ -44,12 +44,14 @@ export default (options: optionsType) => (BaseComponent: Component & { displayNa
   const reducer = hasKey && hasReducer ? { [options.key]: options.reducer } : {};
 
   const configureStore = (initialState = {}) => {
-    const store: storeType = createStore(
+    const reduxStore = createStore(
       createReducer(reducer),
       initialState,
       //@ts-ignore - composeWithDevTools accepts only one argument while compose accepts multiple
       composeEnhancers(...enhancers)
     );
+
+    const store = reduxStore as StoreType;
 
     // Keep access to 'run' method of saga task in store so thats its available globally with store
     store.runSaga = sagaMiddleware.run;

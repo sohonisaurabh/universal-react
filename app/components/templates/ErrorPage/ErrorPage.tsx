@@ -7,20 +7,23 @@ import enhance from '../../../lib/dynamicStore';
 import initialActions from './ErrorPage.actions';
 import HeadTag from '../../atoms/HeadTag';
 import saga from './ErrorPage.saga';
-import reducer from './ErrorPage.reducer';
 import { Response } from 'express';
+import { MapStateToProps } from 'react-redux';
+import reducer, { ErrorPageReducerType } from './ErrorPage.reducer';
 
-type State = {
-  errorPage: {
-    errorData: object;
-  };
+type ReduxState = {
+  errorPage: ErrorPageReducerType;
 };
 
-type Props = {
+type OwnProps = {};
+
+type StateProps = {
   errorData: {
-    message: string;
+    message?: string;
   };
 };
+
+type Props = OwnProps & StateProps;
 
 interface Context extends NextPageContext {
   res?: Response;
@@ -48,13 +51,15 @@ ErrorPage.getInitialProps = ({ res }: Context): any => {
 };
 
 /* istanbul ignore next */
-const mapStateToProps = (state: State) => ({
-  state,
+const mapStateToProps: MapStateToProps<StateProps, Props, ReduxState> = (
+  state: ReduxState
+): StateProps => ({
   errorData: get(state, ['errorPage', 'errorPageData']),
 });
 
 export default enhance(ErrorPage as NextPage, {
   mapStateToProps,
+  //@ts-ignore - Fix this by deriving type of sagas
   saga,
   reducer,
   key: 'errorPage',

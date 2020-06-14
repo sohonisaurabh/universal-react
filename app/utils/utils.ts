@@ -1,7 +1,7 @@
 import getConfig from 'next/config';
 import Router from 'next/router';
 
-type GenericObject = { [key: string]: any };
+export type GenericObject = { [key: string]: any };
 
 export const convertObjectToArray = (obj: GenericObject, takeKeys: Array<string>) =>
   Array.prototype.concat.apply([], takeKeys ? Object.keys(obj) : Object.values(obj)); // eslint-disable-line

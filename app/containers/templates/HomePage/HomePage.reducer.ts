@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import set from 'lodash/set';
 import get from 'lodash/get';
 
-import type {
+import {
   LoadHomeFailureAction,
   LoadSeoDataSuccessAction,
   LoadHomeEditorialDataSuccessAction,
@@ -13,6 +13,18 @@ import {
   LOAD_HOME_SEO_SUCCESS,
   LOAD_HOME_EDITORIAL_DATA_SUCCESS,
 } from './HomePage.constants';
+
+export type HomePageReducerType = {
+  error?: Object;
+  seoData: {
+    description: string;
+    title: string;
+  };
+  editorialData: {
+    title: string;
+    subTitle: string;
+  };
+};
 
 export const getFailure = (state: Object, error: LoadHomeFailureAction): Object =>
   set(state, 'error', error);

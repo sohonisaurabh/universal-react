@@ -1,4 +1,5 @@
 {
+  // "files": ["app/global/saga/index.ts"],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
@@ -27,13 +28,9 @@
     "app/routes/**/*.ts",
     "app/locales/**/*.ts",
     "app/utils/**/*.ts",
-    "app/global/**/*.ts*"
+    "app/global/**/*.ts*",
+    "app/lib/**/*.ts*",
+    "app/pages/**/*.ts*"
   ],
-  "exclude": [
-    "node_modules",
-    "app/components/templates/ErrorPage/**/*.ts",
-    "app/components/templates/ErrorPage/**/*.tsx",
-    "app/pages/**/*.ts*",
-    "app/lib/**/*.ts*"
-  ]
+  "exclude": ["node_modules"]
 }

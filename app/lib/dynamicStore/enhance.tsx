@@ -274,7 +274,18 @@ export const getWrapperComponent = (
  * @param {Object} config.saga Root saga for the given page level component
  * @param {Object} config.initialActions Initial action to trigger page load of page level component
  */
-export default (
+
+interface EnhanceType<State, Props, DefaultRootState, DispatchProps> {
+  mapStateToProps: MapStateToProps<State, Props, DefaultRootState>;
+  mapDispatchToProps: MapDispatchToProps<DispatchProps, Props>;
+  key: string;
+  reducer: Reducer;
+  saga: SagaIterator;
+  initialActions: Array<Function>;
+  useQuery: boolean;
+  criticalState: any;
+}
+export default <State, Props, DefaultRootState, DispatchProps>(
   WrappedComponent: NextPage,
   {
     mapStateToProps,
@@ -285,16 +296,7 @@ export default (
     initialActions,
     useQuery,
     criticalState,
-  }: {
-    mapStateToProps: MapStateToProps<any, any>;
-    mapDispatchToProps: MapDispatchToProps<any, any>;
-    key: string;
-    reducer: Reducer;
-    saga: SagaIterator;
-    initialActions: Array<Function>;
-    useQuery: boolean;
-    criticalState: any;
-  }
+  }: EnhanceType<State, Props, DefaultRootState, DispatchProps>
 ) => {
   const WrapperComponent = getWrapperComponent(WrappedComponent, {
     key,
@@ -317,6 +319,7 @@ export default (
     'Component'})`;
 
   const withConnect = connect(mapStateToProps, mapDispatchToProps);
+
   const withRedux = initRedux({
     key,
     reducer,
