@@ -21,16 +21,6 @@
     "skipLibCheck": true,
     "target": "es5"
   },
-  "include": [
-    "app/components/**/*.ts*",
-    "app/constants/**/*.ts",
-    "app/container/**/*.ts*",
-    "app/routes/**/*.ts",
-    "app/locales/**/*.ts",
-    "app/utils/**/*.ts",
-    "app/global/**/*.ts*",
-    "app/lib/**/*.ts*",
-    "app/pages/**/*.ts*"
-  ],
+  "include": ["app/**/*.ts*"],
   "exclude": ["node_modules"]
 }

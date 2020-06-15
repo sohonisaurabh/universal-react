@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
+//@ts-ignore - Not sure why this is imported
 import styles from '../styles'; // eslint-disable-line no-unused-vars
 import catchErrors from '../utils/errorBoundary';
 
@@ -22,7 +23,7 @@ export default class MyDocument extends Document<Props> {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App: any) => (props: any) => sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);

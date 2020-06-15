@@ -8,10 +8,13 @@ export const trackActions = ({ type, data }: TrackingOptions) => {
     throw new ReferenceError('Define type for tracker.');
   }
 
-  return instance.trackEvent({
-    type,
-    data,
-  });
+  return (
+    instance &&
+    instance.trackEvent({
+      type,
+      data,
+    })
+  );
 };
 
 export default { trackActions };

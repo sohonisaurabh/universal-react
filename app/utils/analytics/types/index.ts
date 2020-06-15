@@ -32,7 +32,7 @@ export type TrackerObject = {
   initialConfigs: Object;
   instance?: Tracker;
   actions: Array<string>;
-  callback: (args: Object) => void;
+  callback: Function;
 };
 
 export type ActionType = {
