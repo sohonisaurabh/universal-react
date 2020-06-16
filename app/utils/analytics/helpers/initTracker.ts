@@ -1,11 +1,11 @@
 //@ts-ignore - No types found for this package
 import { Tracker } from 'react-tracker';
-import type { ActionType, TrackerObject } from '../types';
+import { ActionType, TrackerObject } from '../types';
 
 const trackerConfig: TrackerObject = {
-    initialConfigs: {},
-    actions: [],
-    callback: () => {}
+  initialConfigs: {},
+  actions: [],
+  callback: () => {},
 };
 
 export const executeListners = () => {
@@ -18,11 +18,10 @@ export const executeListners = () => {
   if (instance) {
     instance.on('*', (event: ActionType) => {
       const { type, data } = event;
-  
+
       callback({ initialConfigs: { ...initialConfigs }, data: { ...data }, type });
     });
   }
-  
 };
 
 export const setTrackerConfig = ({ initialConfigs, actions, callback }: TrackerObject) => {
