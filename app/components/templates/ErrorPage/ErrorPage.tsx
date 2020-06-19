@@ -59,7 +59,6 @@ const mapStateToProps: MapStateToProps<StateProps, Props, ReduxState> = (
 
 export default enhance(ErrorPage as NextPage, {
   mapStateToProps,
-  //@ts-ignore - Fix this by deriving type of sagas
   saga,
   reducer,
   key: 'errorPage',

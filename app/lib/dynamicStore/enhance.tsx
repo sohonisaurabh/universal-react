@@ -32,7 +32,6 @@ import { globalDataStructure } from '../../global/reducer';
 import injectSagaAndReducer from './injectSagaAndReducer';
 import { parseQueryParams } from '../../utils/utils';
 import { Request, Response } from 'express';
-import { SagaIterator } from 'redux-saga';
 import { NextPage } from 'next';
 
 type RequestDetailsType = {
@@ -82,9 +81,9 @@ export const getWrapperComponent = (
   }: {
     key: string;
     reducer: Reducer;
-    saga: SagaIterator;
+    saga: Function;
     initialActions: Array<Function>;
-    useQuery: boolean;
+    useQuery?: boolean;
     criticalState: any;
     preExecuteGetInitialProps?: boolean;
   }
@@ -159,7 +158,7 @@ export const getWrapperComponent = (
     }: {
       actions: Array<Function>;
       store: Store;
-      needQuery: boolean;
+      needQuery?: boolean;
       query: string;
       requestDetails: RequestDetailsType;
     }) {
@@ -277,13 +276,13 @@ export const getWrapperComponent = (
 
 interface EnhanceType<State, Props, DefaultRootState, DispatchProps> {
   mapStateToProps: MapStateToProps<State, Props, DefaultRootState>;
-  mapDispatchToProps: MapDispatchToProps<DispatchProps, Props>;
+  mapDispatchToProps?: MapDispatchToProps<DispatchProps, Props>;
   key: string;
   reducer: Reducer;
-  saga: SagaIterator;
+  saga: Function;
   initialActions: Array<Function>;
-  useQuery: boolean;
-  criticalState: any;
+  useQuery?: boolean;
+  criticalState?: any;
 }
 export default <State, Props, DefaultRootState, DispatchProps>(
   WrappedComponent: NextPage,

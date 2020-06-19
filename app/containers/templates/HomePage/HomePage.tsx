@@ -40,7 +40,6 @@ const mapStateToProps: MapStateToProps<StateProps, Props, ReduxState> = (
 
 export default enhance(HomePage as NextPage, {
   mapStateToProps,
-  //@ts-ignore - Fix this by deriving type of sagas
   saga,
   reducer,
   key: 'homePage',
