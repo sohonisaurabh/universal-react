@@ -51,7 +51,7 @@ export default (options: optionsType) => (BaseComponent: Component & { displayNa
       composeEnhancers(...enhancers)
     );
 
-    const store = reduxStore as StoreType;
+    const store = (reduxStore as unknown) as StoreType;
 
     // Keep access to 'run' method of saga task in store so thats its available globally with store
     store.runSaga = sagaMiddleware.run;
