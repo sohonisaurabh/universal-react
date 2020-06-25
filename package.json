@@ -33,7 +33,7 @@
     "pretty": "prettier --write **/*.{js,json,css}",
     "validate": "yarn run lint && yarn run test && yarn run build",
     "perf": "docker run --shm-size=1g --rm -v \"$(pwd)\":/sitespeed.io sitespeedio/sitespeed.io:9.0.0-plus1 -b  --config ./config/performance/sitespeed.config.json --budget.configPath ./config/performance/sitespeed.budget.config.json",
-    "ts-check": "tsc"
+    "type-check": "cd app && tsc"
   },
   "repository": {
     "type": "git",

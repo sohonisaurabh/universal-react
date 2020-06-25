@@ -1,11 +1,10 @@
 {
-  // "files": ["app/global/saga/index.ts"],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "alwaysStrict": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -20,8 +19,12 @@
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "skipLibCheck": true,
-    "target": "esnext"
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
-  "include": ["app/**/*.ts*"],
+  "include": ["**/*.ts*"],
   "exclude": ["node_modules"]
 }

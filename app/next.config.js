@@ -107,6 +107,7 @@ module.exports = withPlugins([withBundleAnalyzer, withOffline], {
       //   });
 
       config.resolve = {
+        ...config.resolve,
         alias: {
           ...(config.resolve.alias || {}),
           winston: path.resolve(__dirname, 'lib/fake/winston.js'),
