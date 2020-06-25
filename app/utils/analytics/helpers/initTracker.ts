@@ -10,11 +10,6 @@ const trackerConfig: TrackerObject = {
 
 export const executeListners = () => {
   const { instance, callback, initialConfigs } = trackerConfig;
-  if (!initialConfigs || !callback) {
-    throw new ReferenceError(
-      'Tracker Config missing. Use setTrackerConfig() to set tracker config on application bootstrap'
-    );
-  }
   if (instance) {
     instance.on('*', (event: ActionType) => {
       const { type, data } = event;

@@ -113,6 +113,7 @@ module.exports = withPlugins([withBundleAnalyzer, withOffline], {
           winston: path.resolve(__dirname, 'lib/fake/winston.js'),
           'winston-logrotate': path.resolve(__dirname, 'lib/fake/winston.js'),
           'memory-cache': path.resolve(__dirname, 'lib/fake/memory-cache.js'),
+          fs: path.resolve(__dirname, 'lib/fake/fs.js'),
         },
       };
 
@@ -127,8 +128,6 @@ module.exports = withPlugins([withBundleAnalyzer, withOffline], {
         })
       );
     }
-
-    config.resolve.alias.fs = path.resolve(__dirname, 'lib/fake/fs.js');
 
     return config;
   },

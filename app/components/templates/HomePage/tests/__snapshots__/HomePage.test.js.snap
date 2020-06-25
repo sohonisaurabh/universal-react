@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomePage component should render correctly 1`] = `
-<Connect(Layout)
-  className="row"
-  id="content-wrapper"
-  title="home"
->
+<Connect(Layout)>
   <HeadTag
     description="Universal React - boilerplate for server side rendered react applications"
     title="Universal React - boilerplate"
