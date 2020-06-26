@@ -24,7 +24,7 @@ import get from 'lodash/get';
 
 import initRedux from './configureStore';
 import monitorSagas from './monitorSagas';
-import loggerFactory from '../../utils/logger';
+import logger from '../../utils/logger';
 import { DESKTOP, MOBILE, PHONE, API_ERROR_HANDLER_PAGE, TABLET } from '../../constants';
 import globalActions, { serverActions, pageActions } from '../../global/actions';
 
@@ -40,8 +40,6 @@ type RequestDetailsType = {
   logger?: typeof logger;
   whitelistedHeaders?: ReturnType<typeof cleanupRequestHeaders>;
 };
-
-const logger = loggerFactory.getLogger();
 
 // List of headers to be extracted before forwarding to the respective
 // endpoints from the application

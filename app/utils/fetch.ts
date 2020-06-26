@@ -3,15 +3,13 @@ import axios from 'axios';
 import es6promise from 'es6-promise';
 import getConfig from 'next/config';
 import agent from '../../server/utils/proxyAgent';
-import loggerFactory from './logger';
+import logger from './logger';
 import { DESKTOP, ENV_DEVELOPMENT, RESPONSE_OK, RESPONSE_SERVER_ERROR } from '../constants';
 import { CACHEABLE_SERVICES_LIST } from './cacheableServices';
 
 const { publicRuntimeConfig } = getConfig();
 
 const API_HOSTS = require('../../API_HOST').environment;
-
-const logger = loggerFactory.getLogger();
 
 es6promise.polyfill();
 

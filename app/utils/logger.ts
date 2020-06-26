@@ -1,15 +1,26 @@
 interface nextJSProcess extends NodeJS.Process {
   browser: boolean;
 }
-import clientLogger from './clientLogger';
-import serverLogger from './serverLogger';
 
-let logger: clientLogger | serverLogger;
+import { ServerLoggerType } from './serverLogger';
+import { ClientLoggerType } from './clientLogger';
+
+const clientLogger = './clientLogger';
+const serverLogger = './serverLogger';
+
+type Logger = ClientLoggerType | ServerLoggerType;
+let logger: Logger = {};
 
 if ((process as nextJSProcess).browser) {
-  logger = new clientLogger();
+  import(clientLogger).then(logFactory => {
+    console.log('logFactory is---', logFactory);
+    logger = logFactory.getLogger();
+  });
 } else {
-  logger = new serverLogger();
+  import(serverLogger).then(logFactory => {
+    console.log('logFactory is---', logFactory);
+    logger = logFactory.getLogger();
+  });
 }
 
 export default logger;

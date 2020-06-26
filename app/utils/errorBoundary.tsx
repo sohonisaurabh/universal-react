@@ -6,8 +6,8 @@ export default function(WrappedComponent: any) {
     /* eslint-disable class-methods-use-this */
     // cors check from reviewer
     componentDidCatch(error: any, info: Object) {
-      logger.getLogger().error('error', JSON.stringify(`App failed to load with errors: ${error}`));
-      logger.getLogger().info('info', JSON.stringify(info));
+      logger.error('error', JSON.stringify(`App failed to load with errors: ${error}`));
+      logger.info('info', JSON.stringify(info));
     }
     /* eslint-enable class-methods-use-this */
 
