@@ -1,12 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ErrorPage Component should render correctly 1`] = `
-<Connect(Layout)
-  className="row"
-  id="content-wrapper"
-  tabindex="-1"
-  title="error"
->
+<Connect(Layout)>
   <HeadTag
     description="error page"
     title="error page"

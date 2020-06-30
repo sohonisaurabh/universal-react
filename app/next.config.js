@@ -107,6 +107,7 @@ module.exports = withPlugins([withBundleAnalyzer, withOffline], {
       //   });
 
       config.resolve = {
+        ...config.resolve,
         alias: {
           ...(config.resolve.alias || {}),
           winston: path.resolve(__dirname, 'lib/fake/winston.js'),
@@ -126,7 +127,6 @@ module.exports = withPlugins([withBundleAnalyzer, withOffline], {
         })
       );
     }
-
     config.resolve.alias.fs = path.resolve(__dirname, 'lib/fake/fs.js');
 
     return config;

@@ -15,9 +15,10 @@ exports[`<NavBar /> should render correctly 2`] = `
     >
       <Link
         href="/1"
-        role="menuitem"
       >
-        <a>
+        <a
+          role="menuitem"
+        >
           Link 1
         </a>
       </Link>
@@ -28,9 +29,10 @@ exports[`<NavBar /> should render correctly 2`] = `
     >
       <Link
         href="/2"
-        role="menuitem"
       >
-        <a>
+        <a
+          role="menuitem"
+        >
           Link 2
         </a>
       </Link>

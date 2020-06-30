@@ -5,6 +5,8 @@ exports[`Spinner Component overlayEnabled is necessary to render child 1`] = `
   <div
     className="rclDefaultSpinner"
     others={null}
+    overlayEnabled={true}
+    spinner={true}
   />
 </div>
 `;
@@ -16,6 +18,7 @@ exports[`Spinner Component should render renderDotSpinner 1`] = `
   <div
     className="renderDotSpinner"
     others={null}
+    overlayEnabled={true}
   >
     <div
       className="renderDotSpinner--dot"
